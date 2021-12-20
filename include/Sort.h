@@ -30,7 +30,7 @@ public:
 	void static selectionSort(Review reviews[], int n, double* nSwap, double* nCompare);
 	void static quickSort(Review reviews[], int inicio, int fim, double* nSwap, double* nCompare);
 	void static heapSort(Review rev[], int n, double* nSwap, double* nCompare);
-	static resultSort* ordenacao(int m);
+	static resultSort *ordenacao(int m);
 	static resultSort media(resultSort data[], int n_itens);
 
 private:

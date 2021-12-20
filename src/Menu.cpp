@@ -51,23 +51,18 @@ menu:
     switch (opt)
     {
     case 1:
-        /* code */
         gerenciaOrdenacao(10000);
         break;
     case 2:
-        /* code */
         gerenciaOrdenacao(50000);
         break;
     case 3:
-        /* code */
         gerenciaOrdenacao(100000);
         break;
     case 4:
-        /* code */
         gerenciaOrdenacao(500000);
         break;
     case 5:
-        /* code */
         gerenciaOrdenacao(1000000);
         break;
     case 0:
@@ -183,83 +178,3 @@ void Menu::writeMediaTxt(resultSort data[][N_METHODS_SORT])
         cout << "Erro ao abrir arquivo de saída" << endl;
     }
 }
-/*
-void Menu::hash()
-{
-    // numero de musicas
-    int N = 10000;
-
-    int m = Hash::calcPrime((N * 1.5), (N * 2));
-    Hash hash(m, m - (N * 0.1));
-    Track* dataHash = Track::readBinaryN(N);
-
-    for (int j = 0; j < N; j++)
-        hash.insert(dataHash[j].id_artists);
-
-    //hash.print();
-    cout << "insercoes no hash ->" << hash.current_size << endl
-        << endl;
-
-    //Artistas mais frequentes e suas músicas 
-    int M = 0;
-
-    cout << "Digite M para imprimir os artistas mais frequentes: ";
-    cin >> M;
-    Artist* frequents = hash.artistsMostFrequent(M);
-    hash.popularTracks(frequents, M);
-
-    // usar ordenação para o vector hash.table na variável hash.table.at(i).repeat 
-
-    // data -> vetor de Artist -> Hash::artistsMostFrequent(Artist *data) 
-
-    // imprimir os M artistas com maior repeat de data 
-}
-
-void Menu::modTeste()
-{
-    //Define o tamanho do teste de ordenação
-    int n = 100;
-    system("clear");
-    cout << "\n--- Modulo de teste ---" << endl
-        << endl;
-
-    //Realiza a ordenação
-    resultSort* results = Sort::ordenacao(n);
-
-    //Monta o dataset do resultado
-    resultSort data[1][N_METHODS_SORT] = { results[0], results[1], results[2] };
-
-    //Escreve o reultado no txt de teste
-    writeOrdenacaoTxt("Teste.txt", data, 1, n);
-
-    cout << "Os teste dos metodos de ordenacao foram realizados\n"
-        << endl;
-
-    ofstream arqSaida;
-    arqSaida.open("Teste.txt", ios::app);
-
-    if (arqSaida.is_open())
-    {
-
-        int N = 1000;
-        int m = Hash::calcPrime((N * 1.5), (N * 2));
-        Hash hash(m, m - (N * 0.1));
-        Track* dataHash = Track::readBinaryN(N);
-
-        for (int j = 0; j < N; j++)
-            hash.insert(dataHash[j].id_artists);
-
-        //hash.print();
-        arqSaida << "insercoes no hash ->" << hash.current_size << endl
-            << endl;
-
-        // busca os 10 artistas mais frequentes 
-        Artist* txtFrequent = hash.artistsMostFrequent(20);
-
-        // busca os 10 artistas mais frequentes 
-        arqSaida << "Os 20 artistas mais frequentes: " << endl;
-
-        for (int i = 0; i < 20; i++)
-            arqSaida << "nome: " << txtFrequent[i].name << endl;
-    }*/
-//}

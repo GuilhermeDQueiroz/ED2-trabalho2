@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Hash.h" />
     <ClInclude Include="include\Menu.h" />
     <ClInclude Include="include\Review.h" />
     <ClInclude Include="include\Sort.h" />
     <ClInclude Include="include\Timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Hash.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\Review.cpp" />

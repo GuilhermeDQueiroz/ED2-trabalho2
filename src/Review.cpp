@@ -4,7 +4,7 @@ using namespace std;
 
 vector<Review> Review::readCsv(string path)
 {
-    string arquivo = path + "tiktok_app_reviews.csv";
+    string arquivo = path + "tiktok_app_reviews_reduzido_1094.csv";
     fstream arq(arquivo);
     if (arq.is_open())
     {

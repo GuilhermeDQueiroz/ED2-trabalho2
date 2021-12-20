@@ -10,12 +10,12 @@
 #include "Review.h"
 #include "Timer.h"
 #include "Sort.h"
-//#include "Hash.h"
+#include "Hash.h"
 
 using namespace std;
 using namespace chrono;
 
-// Constantes
+//Constantes
 int const N_METHODS_SORT = 3;
 int const M_NUMBER = 3;
 string const ARQ_SAIDA = "saida.txt";
