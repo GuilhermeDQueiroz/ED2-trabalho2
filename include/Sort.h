@@ -19,6 +19,15 @@ struct resultSort
 	double nCompare;
 	double nSwap;
 	duration<double> time_spent;
+
+	resultSort(string tipo, double nCompare, double nSwap, duration<double> time){
+		this->tipo = tipo;
+		this->nCompare = nCompare;
+		this->nSwap = nSwap;
+		this->time_spent = time;
+	}
+
+	resultSort(){}
 };
 
 class Sort

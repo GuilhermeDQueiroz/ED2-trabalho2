@@ -1,6 +1,6 @@
 #include "../include/Sort.h"
 
-//Utilidades
+// Utilidades
 void copyArr(int n, Review* data, Review* rev1, Review* rev2)
 {
     //Faz a copia de vetores (amostra)
@@ -14,14 +14,9 @@ void copyArr(int n, Review* data, Review* rev1, Review* rev2)
 resultSort Sort::media(resultSort data[], int n_itens)
 {
     // Inicia o retorno com valores padrões para evitar bugs de resultado
-    resultSort response = {
-      tipo: data[0].tipo,
-      nCompare : 0,
-      nSwap : 0,
-      time_spent : duration<double>()
-    };
+    resultSort response = resultSort{data[0].tipo, 0, 0, duration<double>()};
 
-    //Calcula a media dos resultados passados
+    // Calcula a media dos resultados passados
     for (int i = 0; i < n_itens; i++)
     {
         response.nCompare += data[i].nCompare;
@@ -36,7 +31,7 @@ resultSort Sort::media(resultSort data[], int n_itens)
     return response;
 }
 
-///// SORT /////
+// SORT //
 
 void Sort::selectionSort(Review reviews[], int n, double* nSwap, double* nCompare)
 {
@@ -174,12 +169,7 @@ resultSort* Sort::ordenacao(int m)
     nSwap = 0;
     timer.start();
     Sort::selectionSort(rev1, n, &nSwap, &nCompare);
-    resultSort result_selectionSort = {
-      tipo: "SelectionSort",
-      nCompare : nCompare,
-      nSwap : nSwap,
-      time_spent : timer.stop()
-    };
+    resultSort result_selectionSort = {"SelectionSort", nCompare, nSwap, timer.stop()};
 
     //HeapSort
     cout << "2 - HeapSort" << endl;
@@ -187,12 +177,7 @@ resultSort* Sort::ordenacao(int m)
     nSwap = 0;
     timer.start();
     Sort::heapSort(rev2, n - 1, &nSwap, &nCompare);
-    resultSort result_heapSort{
-      tipo: "HeapSort",
-      nCompare : nCompare,
-      nSwap : nSwap,
-      time_spent : timer.stop()
-    };
+    resultSort result_heapSort{"HeapSort",nCompare,nSwap, timer.stop()};
 
     //QuickSort
     cout << "3 - QuickSort" << endl;
@@ -200,12 +185,7 @@ resultSort* Sort::ordenacao(int m)
     nSwap = 0;
     timer.start();
     Sort::quickSort(rev3, 0, n - 1, &nSwap, &nCompare);
-    resultSort result_quickSort{
-      tipo: "QuickSort",
-      nCompare : nCompare,
-      nSwap : nSwap,
-      time_spent : timer.stop()
-    };
+    resultSort result_quickSort{"QuickSort", nCompare, nSwap, timer.stop()};
 
     //
     results[0] = result_selectionSort;

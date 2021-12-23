@@ -7,7 +7,7 @@ void Menu::iniciar()
 menu:
     cout << "\n| ----- Menu Principal ------ |" << endl
         << endl
-        << "Selecione uma opção para continuar: " << endl
+        << "Selecione uma opcao para continuar: " << endl
         << "1 - Ordenacao\n2 - Hash\n3 - Modulo de Teste\n0 - Sair" << endl
         << endl
         << ">> ";
@@ -17,15 +17,16 @@ menu:
     switch (opt)
     {
     case 1:
+        
         menuOrdenacao();
         break;
 
     case 2:
-        hash();
+        //hash();
         break;
 
     case 3:
-        modTeste();
+        //modTeste();
         break;
 
     case 0:
@@ -42,28 +43,35 @@ menu:
 void Menu::menuOrdenacao()
 {
     int opt;
+    string pathDat = "";
+    int s = 0;
 menu:
     cout << "\n| --- Menu de Ordenacao --- |\n\n"
         << "Digite a quantidade de elementos para serem ordenados: \n\n"
-        << "1 - 10.000\n2 - 50.000\n3. 100.000\n4 - 500.000\n5 - 1.000.000\n0 - Sair\n\n>> ";
+        << "1 - 10.000\n2 - 50.000\n3 - 100.000\n4 - 500.000\n5 - 1.000.000\n0 - Sair\n\n>> ";
     cin >> opt;
-
+    
     switch (opt)
     {
     case 1:
-        gerenciaOrdenacao(10000);
+        s = readDat(pathDat, 1);
+        gerenciaOrdenacao(s);
         break;
     case 2:
-        gerenciaOrdenacao(50000);
+        s = readDat(pathDat, 2);
+        gerenciaOrdenacao(s);
         break;
     case 3:
-        gerenciaOrdenacao(100000);
+        s = readDat(pathDat, 3);
+        gerenciaOrdenacao(s);
         break;
     case 4:
-        gerenciaOrdenacao(500000);
+        s = readDat(pathDat, 4);
+        gerenciaOrdenacao(s);
         break;
     case 5:
-        gerenciaOrdenacao(1000000);
+        s = readDat(pathDat, 5);
+        gerenciaOrdenacao(s);
         break;
     case 0:
         return;
@@ -138,7 +146,7 @@ void Menu::writeOrdenacaoTxt(string arquivo, resultSort data[][N_METHODS_SORT], 
     }
     else
     {
-        cout << "Erro ao abrir arquivo de saída" << endl;
+        cout << "Erro ao abrir arquivo de saída!" << endl;
     }
 }
 
@@ -175,6 +183,29 @@ void Menu::writeMediaTxt(resultSort data[][N_METHODS_SORT])
     }
     else
     {
-        cout << "Erro ao abrir arquivo de saída" << endl;
+        cout << "Erro ao abrir arquivo de saída!" << endl;
     }
+}
+
+int Menu::readDat(string pathDat, int l){
+    string line = "";
+    string arquivo = pathDat + "input.dat";
+    fstream arq;
+
+    arq.open(arquivo, ios::out);
+    
+    int nDat = 0;
+
+    if (arq.is_open())
+    {
+        arq.seekg(std::ios::beg);
+        for(int i=0; i < l - 1; ++i){
+            arq.ignore(numeric_limits<streamsize>::max(),'\n');
+        }
+        getline(arq, line);
+    }
+
+    arq.close();
+    
+    return stoi(line);
 }

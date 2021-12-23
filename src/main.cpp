@@ -7,9 +7,7 @@
 #include <time.h>
 
 #include "../include/Review.h"
-//#include "../include/Hash.h"
 #include "../include/Menu.h"
-#include "../include/Sort.h"
 
 using namespace std;
 

@@ -5,6 +5,7 @@
 #include <string>
 #include <cstdlib>
 #include <chrono>
+#include <string>
 #include <vector>
 
 #include "Review.h"
@@ -31,10 +32,11 @@ public:
 	void static selecionaChave(int chave);
 	void static menuOrdenacao();
 	static void iniciar();
+	int static readDat(string pathDat, int l);
 
 private:
-	void static hash();
-	void static modTeste();
+	//void static hash();
+	//void static modTeste();
 	static void writeOrdenacaoTxt(string arquivo, resultSort data[][N_METHODS_SORT], int n, int m);
 	static void writeMediaTxt(resultSort data[][N_METHODS_SORT]);
 	static void gerenciaOrdenacao(int chave_n);

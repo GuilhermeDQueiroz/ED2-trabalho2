@@ -26,8 +26,8 @@ public:
 	static vector<Review> readCsv(string path);
 	static void writeBinary(Review* data, int n);
 	static Review* readBinaryN(int n);
-	static Review* accessBinaryI(int i);
 	static void writeElementTxt(Review* data, int n);
+	//static Review* accessBinaryI(int i);
 	void printElement();
 
 private:
