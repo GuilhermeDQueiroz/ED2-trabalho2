@@ -2,13 +2,12 @@
 CC = g++
 
 # Flags 
-CC_FLAGS = -std=c+11 -Wall -g -Iinclude -c
-
+CC_FLAGS = -g -Iinclude -c
 
 all: main
 
-main: main.o review.o timer.o menu.o hash.o
-		$(CC) -o bin/main obj/main.o obj/Review.o obj/Sort.o obj/Timer.o obj/Menu.o obj/Hash.o
+main: main.o review.o timer.o menu.o hash.o sort.o
+		$(CC) -o bin/main.exe obj/main.o obj/Review.o obj/Sort.o obj/Timer.o obj/Menu.o obj/Hash.o
 
 main.o: src/main.cpp
 		$(CC) $(CC_FLAGS) src/main.cpp -o obj/main.o

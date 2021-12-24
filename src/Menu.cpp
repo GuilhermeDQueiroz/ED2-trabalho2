@@ -1,7 +1,10 @@
-#include "../include/Menu.h"
+ï»¿#include "../include/Menu.h"
 
-void Menu::iniciar()
+string PATH;
+
+void Menu::iniciar(string path)
 {
+    PATH = path;
     int opt;
     system("clear");
 menu:
@@ -17,7 +20,7 @@ menu:
     switch (opt)
     {
     case 1:
-        
+
         menuOrdenacao();
         break;
 
@@ -43,14 +46,14 @@ menu:
 void Menu::menuOrdenacao()
 {
     int opt;
-    string pathDat = "";
+    string pathDat = PATH;
     int s = 0;
 menu:
     cout << "\n| --- Menu de Ordenacao --- |\n\n"
         << "Digite a quantidade de elementos para serem ordenados: \n\n"
         << "1 - 10.000\n2 - 50.000\n3 - 100.000\n4 - 500.000\n5 - 1.000.000\n0 - Sair\n\n>> ";
     cin >> opt;
-    
+
     switch (opt)
     {
     case 1:
@@ -85,7 +88,7 @@ menu:
 
 void Menu::gerenciaOrdenacao(int n)
 {
-    //Quantidade de amostras utilizadas para calcular o resultado dos metodos de ordenação
+    //Quantidade de amostras utilizadas para calcular o resultado dos metodos de ordenaï¿½ï¿½o
     int M = 3;
 
     resultSort listResult[3][N_METHODS_SORT];
@@ -94,7 +97,7 @@ void Menu::gerenciaOrdenacao(int n)
     {
         cout << "\n | Amostra " << i + 1 << "| " << endl;
 
-        //Chama o orquestrador dos métodos de ordenação
+        //Chama o orquestrador dos mï¿½todos de ordenaï¿½ï¿½o
         resultSort* results = Sort::ordenacao(n);
 
         //Monta o dataset de resultados
@@ -146,7 +149,7 @@ void Menu::writeOrdenacaoTxt(string arquivo, resultSort data[][N_METHODS_SORT], 
     }
     else
     {
-        cout << "Erro ao abrir arquivo de saída!" << endl;
+        cout << "Erro ao abrir arquivo de saï¿½da!" << endl;
     }
 }
 
@@ -165,7 +168,7 @@ void Menu::writeMediaTxt(resultSort data[][N_METHODS_SORT])
             //Monta um vetor com os valores de um mesmo metodo
             resultSort data_type[3] = { data[0][j], data[1][j], data[2][j] };
 
-            // Calcula a média
+            // Calcula a mï¿½dia
             resultSort med = Sort::media(data_type, 3);
             arqSaida << j + 1 << ". "
                 << med.tipo << ": "
@@ -183,29 +186,101 @@ void Menu::writeMediaTxt(resultSort data[][N_METHODS_SORT])
     }
     else
     {
-        cout << "Erro ao abrir arquivo de saída!" << endl;
+        cout << "Erro ao abrir arquivo de saï¿½da!" << endl;
     }
 }
 
-int Menu::readDat(string pathDat, int l){
-    string line = "";
+int Menu::readDat(string pathDat, int l) {
+    string line;
     string arquivo = pathDat + "input.dat";
-    fstream arq;
+    ifstream arq(arquivo);
 
-    arq.open(arquivo, ios::out);
-    
     int nDat = 0;
 
     if (arq.is_open())
     {
-        arq.seekg(std::ios::beg);
-        for(int i=0; i < l - 1; ++i){
-            arq.ignore(numeric_limits<streamsize>::max(),'\n');
+        //arq.seekg(std::ios::beg);
+        for (int i = 0; i < l; ++i) {
+            getline(arq, line);
+            cout << "Linha " << i + 1 << ": " << line << endl;
         }
-        getline(arq, line);
+        arq.close();
+    }
+    else {
+        cout << "Erro ao abrir arquivo de entrada!" << endl;
+        abort();
     }
 
-    arq.close();
-    
     return stoi(line);
 }
+
+
+/*
+void Menu::hash()
+{
+    int N = 10000;
+
+    int m = Hash::calcPrime((N * 1.5), (N * 2));
+    Hash hash(m, m - (N * 0.1));
+    Review* dataHash = Review::readBinaryN(N);
+
+    for (int j = 0; j < N; j++)
+        hash.insert(dataHash[j].app_version);
+
+    //hash.print();
+    cout << "insercoes no hash ->" << hash.current_size << endl
+        << endl;
+
+    int M = 0;
+
+    cout << "Digite um valor M para imprimir as versÃµes do app mais frequentes: ";
+    cin >> M;
+    //Review* frequents = hash.mostPopularReviews(M);
+}
+
+void Menu::modTeste()
+{
+    int n = 100;
+    system("clear");
+    cout << "\n| --- Modulo de Testes --- |" << endl
+        << endl;
+
+    //Realiza a ordenacao
+    resultSort* results = Sort::ordenacao(n);
+
+    //Monta o dataset do resultado
+    resultSort data[1][N_METHODS_SORT] = { results[0], results[1], results[2] };
+
+    //Escreve o reultado Teste.txt
+    writeOrdenacaoTxt("Teste.txt", data, 1, n);
+
+    cout << "Teste dos Metodos de Ordenacao Concluidos!\n" << endl;
+
+    ofstream arqSaida;
+    arqSaida.open("Teste.txt", ios::app);
+
+    if (arqSaida.is_open())
+    {
+
+        int N = 1000;
+        int m = Hash::calcPrime((N * 1.5), (N * 2));
+        Hash hash(m, m - (N * 0.1));
+        Review* dataHash = Review::readBinaryN(N);
+
+        for (int j = 0; j < N; j++)
+            hash.insert(dataHash[j].app_version);
+
+        //hash.print();
+        arqSaida << "insercoes no hash ->" << hash.current_size << endl
+            << endl;
+
+        //Review* txtFreq = hash.mostPopularReviews(20);
+
+        arqSaida << "As 20 versÃµes do app mais frequentes: " << endl;
+
+        //for (int i = 0; i < 20; i++)
+            //arqSaida << "versao: " << txtFreq[i].app_version << endl;
+
+    }
+}
+*/

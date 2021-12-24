@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
     dataReview = Review::readCsv(pathCsv);
     Review::writeBinary(dataReview.data(), dataReview.size());
 
-    Menu::iniciar();
+    Menu::iniciar(pathCsv);
 
     return 0;
 }

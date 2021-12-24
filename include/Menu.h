@@ -31,7 +31,8 @@ public:
 	int static menu();
 	void static selecionaChave(int chave);
 	void static menuOrdenacao();
-	static void iniciar();
+	static void iniciar(string path);
+
 	int static readDat(string pathDat, int l);
 
 private:
@@ -40,6 +41,8 @@ private:
 	static void writeOrdenacaoTxt(string arquivo, resultSort data[][N_METHODS_SORT], int n, int m);
 	static void writeMediaTxt(resultSort data[][N_METHODS_SORT]);
 	static void gerenciaOrdenacao(int chave_n);
+
+
 };
 
 #endif // MENU_H
