@@ -46,9 +46,6 @@ vector<Review> Review::readCsv(string path)
         // Fechar arquivo
         arq.close();
 
-        // Imprime a quantidade de registros que não foram salvo
-        cout << "Review -> Numero de registros excluidos: " << c << endl;
-
         //retorna o dataset
         return dataSet;
     }
@@ -75,6 +72,7 @@ void Review::writeBinary(Review* data, int n)
     {
         cout << "Falha ao abrir arquivo" << endl;
     }
+    
 }
 
 Review* Review::readBinaryN(int n)

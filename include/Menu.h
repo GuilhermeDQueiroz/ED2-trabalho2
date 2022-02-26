@@ -37,7 +37,7 @@ public:
 
 private:
 	//void static hash();
-	//void static modTeste();
+	void static modTeste();
 	static void writeOrdenacaoTxt(string arquivo, resultSort data[][N_METHODS_SORT], int n, int m);
 	static void writeMediaTxt(resultSort data[][N_METHODS_SORT]);
 	static void gerenciaOrdenacao(int chave_n);

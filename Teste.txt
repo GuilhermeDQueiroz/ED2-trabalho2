@@ -1,0 +1,7 @@
+Estatisticas dos metodos de ordenacao com 1000 elementos:
+
+Amostra 1: 
+1. SelectionSort: Tempo de Execucao: 0.0099148s - Numero de Comparacoes: 499500 - Numero de Trocas: 999
+1. HeapSort: Tempo de Execucao: 0.0209123s - Numero de Comparacoes: 10887 - Numero de Trocas: 3130
+1. QuickSort: Tempo de Execucao: 0.0287432s - Numero de Comparacoes: 290056 - Numero de Trocas: 2023
+

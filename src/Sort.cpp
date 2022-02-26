@@ -60,6 +60,8 @@ void Sort::selectionSort(Review reviews[], int n, double* nSwap, double* nCompar
     }
 }
 
+
+
 void Sort::swap(Review* item1, Review* item2, double* numSwap)
 {
     //Faz a troca dos elementos
@@ -84,9 +86,39 @@ void Sort::quickSort(Review reviews[], int inicio, int fim, double* nSwap, doubl
     }
 }
 
+
+Review Sort::medianaDeTres(Review* v, int ini, int fim)
+{
+    int meio = (ini + fim) / 2;
+
+    if (v[ini].upvotes > v[fim].upvotes) {
+        troca(v[ini], v[fim]);
+    }
+
+    if (v[meio].upvotes > v[fim].upvotes) {
+        troca(v[meio], v[fim]);
+    }
+
+    if (v[ini].upvotes > v[meio].upvotes) {
+        troca(v[ini], v[meio]);
+    }
+
+    troca(v[meio], v[fim]);
+    return v[fim];
+}
+
+
+void Sort::troca(Review& a, Review& b)
+{
+    Review aux = a;
+    a = b;
+    b = aux;
+}
+
+
 int Sort::particao(Review reviews[], int inicio, int fim, double* nSwap, double* nCompare)
 {
-    Review pivo = reviews[fim];  // pivo
+    Review pivo = medianaDeTres(reviews, inicio, fim);  // pivo
     int minIndex = (inicio - 1); // Menor indice
 
     for (int j = inicio; j <= fim - 1; j++)

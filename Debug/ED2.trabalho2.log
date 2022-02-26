@@ -1,0 +1,13 @@
+﻿  Hash.cpp
+  main.cpp
+D:\Workspace\Nova pasta\Facul 20213\ED2\ED2\ED2.trabalho2\src\main.cpp(29,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Menu.cpp
+D:\Workspace\Nova pasta\Facul 20213\ED2\ED2\ED2.trabalho2\src\Menu.cpp(152,17): warning C4566: caractere representado por nome de caractere universal (UCN) '\uFFFD' não pode ser representado na página de código atual (1252)
+D:\Workspace\Nova pasta\Facul 20213\ED2\ED2\ED2.trabalho2\src\Menu.cpp(189,17): warning C4566: caractere representado por nome de caractere universal (UCN) '\uFFFD' não pode ser representado na página de código atual (1252)
+  Review.cpp
+D:\Workspace\Nova pasta\Facul 20213\ED2\ED2\ED2.trabalho2\src\Review.cpp(40,37): warning C4101: 'e': variável local não referenciada
+D:\Workspace\Nova pasta\Facul 20213\ED2\ED2\ED2.trabalho2\src\Review.cpp(139,13): warning C4244: 'inicializando': conversão de 'std::streamoff' para 'int', possível perda de dados
+  Sort.cpp
+  Timer.cpp
+  Gerando Código...
+  ED2.trabalho2.vcxproj -> D:\Workspace\Nova pasta\Facul 20213\ED2\ED2\Debug\ED2.trabalho2.exe

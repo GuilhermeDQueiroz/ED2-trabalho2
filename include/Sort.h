@@ -41,6 +41,8 @@ public:
 	void static heapSort(Review rev[], int n, double* nSwap, double* nCompare);
 	static resultSort *ordenacao(int m);
 	static resultSort media(resultSort data[], int n_itens);
+	static Review medianaDeTres(Review* v, int ini, int fim);
+	void static troca(Review& v, Review& n);
 
 private:
 	void static swap(Review* item1, Review* item2, double* numSwap);

@@ -29,7 +29,7 @@ menu:
         break;
 
     case 3:
-        //modTeste();
+        modTeste();
         break;
 
     case 0:
@@ -214,7 +214,6 @@ int Menu::readDat(string pathDat, int l) {
     return stoi(line);
 }
 
-
 /*
 void Menu::hash()
 {
@@ -237,10 +236,11 @@ void Menu::hash()
     cin >> M;
     //Review* frequents = hash.mostPopularReviews(M);
 }
+*/
 
 void Menu::modTeste()
 {
-    int n = 100;
+    int n = 1000;
     system("clear");
     cout << "\n| --- Modulo de Testes --- |" << endl
         << endl;
@@ -256,9 +256,11 @@ void Menu::modTeste()
 
     cout << "Teste dos Metodos de Ordenacao Concluidos!\n" << endl;
 
-    ofstream arqSaida;
-    arqSaida.open("Teste.txt", ios::app);
+    //ofstream arqSaida;
+    //arqSaida.open("Teste.txt", ios::app);
+}
 
+/*
     if (arqSaida.is_open())
     {
 
